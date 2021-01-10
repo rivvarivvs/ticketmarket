@@ -62,5 +62,5 @@ it('sets a cookie after signing up', async () => {
         })
         .expect(201);
 
-    expect(response.get('Set-Cookie')).toBeUndefined;
+    expect(response.get('Set-Cookie')).toBeDefined;
 });
