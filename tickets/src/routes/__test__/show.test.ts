@@ -1,8 +1,9 @@
 import request from 'supertest';
 import { app } from '../../app';
+import mongoose from 'mongoose'
 
 it('returns a 404 if not found', async () => {
-	await request(app).get('/api/tickets/asdlhjaksjdklasdj').send().expect(404);
+	await request(app).get(`/api/tickets/asdfghjklkjh`).send().expect(404);
 });
 
 it('it returns the ticket if its found', async () => {
