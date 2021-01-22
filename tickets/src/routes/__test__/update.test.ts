@@ -1,5 +1,7 @@
 import request from 'supertest';
 import { app } from '../../app';
+import mongoose from 'mongoose';
+import { natsWrapper } from '../../nats-wrapper';
 
 it('returns a 404 if the ticket doesnt exist', async () => {
 	await request(app)
@@ -90,4 +92,27 @@ it('it updates the ticket and returns a 200', async () => {
 			price: 11,
 		})
 		.expect(200);
+});
+
+it('publishes an event', async () => {
+	const cookie = global.signin();
+
+	const res = await request(app)
+		.post('/api/tickets')
+		.set('Cookie', cookie)
+		.send({
+			title: 'title',
+			price: 10,
+		});
+
+	await request(app)
+		.put(`/api/tickets/${res.body.id}`)
+		.set('Cookie', cookie)
+		.send({
+			title: 'newtitle',
+			price: 11,
+		})
+		.expect(200);
+
+	expect(natsWrapper.client.publish).toHaveBeenCalled();
 });
