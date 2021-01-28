@@ -1,4 +1,6 @@
 import mongoose from "mongoose";
+import { updateIfCurrentPlugin } from 'mongoose-update-if-current'
+import { updateTicketRouter } from "../routes/update";
 
 // An interface that describes the properties
 // that are requried to create a new User
@@ -14,6 +16,7 @@ interface TicketDoc extends mongoose.Document {
     title: string;
     price: number;
     userId: string;
+    version: number
 }
 
 // An interface that describes the properties
@@ -47,6 +50,9 @@ const ticketSchema = new mongoose.Schema(
     },
   }
 );
+
+ticketSchema.set('versionKey', 'version')
+ticketSchema.plugin(updateIfCurrentPlugin)
 
 ticketSchema.statics.build = (attrs: TicketAttrs) => {
   return new Ticket(attrs);

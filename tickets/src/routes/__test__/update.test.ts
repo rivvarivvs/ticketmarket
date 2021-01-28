@@ -14,17 +14,17 @@ it('returns a 404 if the ticket doesnt exist', async () => {
 		.expect(404);
 });
 
-it('returns a 400 if the user is not logged in', async () => {
+it('returns a 401 if the user is not logged in', async () => {
 	await request(app)
 		.put('/api/tickets/asdasdasdasd')
 		.send({
 			title: 'title',
 			price: 10,
 		})
-		.expect(400);
+		.expect(401);
 });
 
-it('returns a 400 if the user is not the owner of the ticket', async () => {
+it('returns a 401 if the user is not the owner of the ticket', async () => {
 	const res = await request(app)
 		.post('/api/tickets')
 		.set('Cookie', global.signin())
@@ -40,7 +40,7 @@ it('returns a 400 if the user is not the owner of the ticket', async () => {
 			title: 'another',
 			price: 11,
 		})
-		.expect(400);
+		.expect(401	);
 });
 
 it('returns a 400 if the user provides an invalid title or price', async () => {
