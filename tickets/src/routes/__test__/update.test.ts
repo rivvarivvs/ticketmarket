@@ -2,6 +2,7 @@ import request from 'supertest';
 import { app } from '../../app';
 import mongoose from 'mongoose';
 import { natsWrapper } from '../../nats-wrapper';
+import { Ticket } from '../../models/ticket';
 
 it('returns a 404 if the ticket doesnt exist', async () => {
 	await request(app)
@@ -14,17 +15,17 @@ it('returns a 404 if the ticket doesnt exist', async () => {
 		.expect(404);
 });
 
-it('returns a 400 if the user is not logged in', async () => {
+it('returns a 401 if the user is not logged in', async () => {
 	await request(app)
 		.put('/api/tickets/asdasdasdasd')
 		.send({
 			title: 'title',
 			price: 10,
 		})
-		.expect(400);
+		.expect(401);
 });
 
-it('returns a 400 if the user is not the owner of the ticket', async () => {
+it('returns a 401 if the user is not the owner of the ticket', async () => {
 	const res = await request(app)
 		.post('/api/tickets')
 		.set('Cookie', global.signin())
@@ -40,7 +41,7 @@ it('returns a 400 if the user is not the owner of the ticket', async () => {
 			title: 'another',
 			price: 11,
 		})
-		.expect(400);
+		.expect(401);
 });
 
 it('returns a 400 if the user provides an invalid title or price', async () => {
@@ -115,4 +116,30 @@ it('publishes an event', async () => {
 		.expect(200);
 
 	expect(natsWrapper.client.publish).toHaveBeenCalled();
+});
+
+it('rejects updates if the ticket is reserved', async () => {
+	const cookie = global.signin();
+
+	const res = await request(app)
+		.post('/api/tickets')
+		.set('Cookie', cookie)
+		.send({
+			title: 'title',
+			price: 10,
+		});
+
+	const ticket = await Ticket.findById(res.body.id);
+	ticket.set({ orderId: new mongoose.Types.ObjectId().toHexString() });
+
+	await ticket.save()
+
+	await request(app)
+		.put(`/api/tickets/${res.body.id}`)
+		.set('Cookie', cookie)
+		.send({
+			title: 'newtitle',
+			price: 11,
+		})
+		.expect(400);
 });
