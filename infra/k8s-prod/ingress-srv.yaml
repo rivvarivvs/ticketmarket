@@ -30,9 +30,6 @@ spec:
             backend:
               serviceName: client-srv
               servicePort: 3000
-
-service.beta.kubernetes.io/do-loadbalancer-hostname: 'www.ticketmarket-app-prod.xyz'
-
 ---
 apiVersion: v1
 kind: Service
