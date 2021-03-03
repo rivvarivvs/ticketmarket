@@ -1,25 +1,25 @@
-name: deploy-payments
+name: deploy-tickets
 
 on:
   push:
     branches:
       - main
     paths:
-      - 'payments/**'
+      - 'tickets/**'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: cd payments && docker build -t rivva/payments .
+      - run: cd tickets && docker build -t rivva/tickets .
       - run: echo "$DOCKER_USER_NAME $DOCKER_PASSWORD" && docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD 
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      - run: docker push rivva/payments
+      - run: docker push rivva/tickets
       - uses: digitalocean/action-doctl@v2
         with:
           token: ${{ secrets.DIGITALOCEAN_TOKEN }}
       - run: doctl kubernetes cluster kubeconfig save f73215a5-2728-47d8-ae01-9125f48ddf60
-      - run: kubectl rollout restart deployment payments-depl
+      - run: kubectl rollout restart deployment tickets-depl
