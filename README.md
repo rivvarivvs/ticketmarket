@@ -3,7 +3,7 @@ eTicket Market
 
 
 ## Description
-This app was developed having in mind my learning process as an backend developer. As such, I provide all the APIs endpoints to all of the microservices with their internal logic to process a full-on market for every kind of tickets. It has a payment system integrated. All the microservices communicate with each other through an event bus. The app also has configuration to be deployed in local k8s clusters.
+This app was developed having in mind my learning process as an backend developer. As such, the client template exists so you can try all the present features of the app. This is a secondhand ticket seller app. If features authentication, a microservices architecture with an event bus, a deployment in the cloud with k8s and docker. It also features an expiration service, to reserve the ticket for 10 minutes while its being bought. Finally, you there's integrated payment through the app.
 
 
 ## Badges
@@ -60,4 +60,9 @@ Copyright (c) 2021 Riva Alves
 
 ## Project status
 
-At the moment, I'm still in development mode, working on it full-time so I can deliver it as soon as possible. The project is destined to stay a prototype.
+The project is destined to stay a prototype.
+
+## To-do
+
+ 	- [ ] Email service integration
+ 	- [ ] HTTPS protocol
