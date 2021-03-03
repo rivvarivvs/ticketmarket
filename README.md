@@ -12,8 +12,10 @@ This app was developed having in mind my learning process as an backend develope
 ![](https://img.shields.io/badge/Database-Redis-lightgrey)
 ![](https://img.shields.io/badge/Eventbus-NATS-lightgreen)
 ![](https://img.shields.io/badge/Virtualization-Docker-lightblue)
+![](https://img.shields.io/badge/Test-Jest-dark%20yellow)
 ![](https://img.shields.io/badge/Containerization-Kubernetes-red)
-![](https://img.shields.io/badge/CI/CD-Skaffold-red)
+![](https://img.shields.io/badge/CI%2FCD-Github%20Actions-red)
+![](https://img.shields.io/badge/Cloud-Digital%20Ocean-blue)
 
 
 ## Installation
