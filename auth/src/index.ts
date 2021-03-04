@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import { app } from "./app";
 
 const start = async () => {
-  console.log('New commit')
+  console.log('New commi')
   if (!process.env.JWT_KEY) {
     throw new Error("JWT_KEY must be defined");
   }
