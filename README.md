@@ -13,7 +13,8 @@ Features:
 - [x] Event bus
 - [x] Cloud deployment with k8s and docker
 - [x] MVP UI
-
+- [x] CI/CD pipeline with Github Actions
+- [x] Testing  
 
 ## Badges
 ![](https://img.shields.io/static/v1?label=Language&message=TypeScript&color=blue)
