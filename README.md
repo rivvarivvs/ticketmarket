@@ -19,7 +19,6 @@ Features:
 ## Badges
 ![](https://img.shields.io/static/v1?label=Language&message=TypeScript&color=blue)
 ![](https://img.shields.io/badge/Database-MongoDB-lightgrey)
-![](https://img.shields.io/badge/Database-Redis-lightgrey)
 ![](https://img.shields.io/badge/Eventbus-NATS-lightgreen)
 ![](https://img.shields.io/badge/Virtualization-Docker-lightblue)
 ![](https://img.shields.io/badge/Test-Jest-dark%20yellow)
@@ -32,7 +31,7 @@ Features:
 
 To run this project in development mode, make sure to install skaffold and then run it:
 
-Windows:
+Windows (requires chocolatey):
 ```
 choco install -y skaffold
 skaffold dev
