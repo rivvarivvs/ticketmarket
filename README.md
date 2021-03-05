@@ -3,7 +3,16 @@ eTicket Market
 
 
 ## Description
-This app was developed having in mind my learning process as an backend developer. As such, the client template exists so you can try all the present features of the app. This is a secondhand ticket seller app. If features authentication, a microservices architecture with an event bus, a deployment in the cloud with k8s and docker. It also features an expiration service, to reserve the ticket for 10 minutes while its being bought. Finally, you there's integrated payment through the app.
+This app was developed having in mind my learning process as an backend developer. As such, the client template exists so you can try all the present features of the app. 
+
+Features:
+- [x] Authentication
+- [x] Expiration service to reserve the ticket for 10 minutes while its being bought 
+- [x] Payment integration with Stripe API
+- [x] Microservices architecture
+- [x] Event bus
+- [x] Cloud deployment with k8s and docker
+- [x] MVP UI
 
 
 ## Badges
@@ -64,5 +73,5 @@ The project is destined to stay a prototype.
 
 ## To-do
 
- 	- [ ] Email service integration
- 	- [ ] HTTPS protocol
+- [ ] Email service integration
+- [ ] HTTPS protocol
