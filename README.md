@@ -1,5 +1,5 @@
 ## Name and Description
-Ticketmarket: a market-place to sell and buy second-hand tickets
+**Ticketmarket**: a market-place to sell and buy second-hand tickets
 
 
 ## Project Purpose and Goal
@@ -37,7 +37,7 @@ Digital Ocean was chosen because of its simplicity, compared to the big three.
 
 *Oh boy*. Comparing to my last project this one was a new step-up in ***complexity***. Managing to learn new technologies which are present throughout all the development process such as TypeScript.
 
-I could list a whole lot of roadblocks but one of the major ones was sticking to the principles of the architecture I choose. A lot of planning comes into building a microservices application and one of the bigger learnings was that when it comes to developing, planning is probably the most important part of the project. This said I choose to go with an async type of communication between services so I could build an app with services as independently as possible.
+I could list a whole lot of roadblocks but one of the major ones was ***sticking to the principles of the architecture I choose***. A lot of planning comes into building a microservices application and one of the bigger learnings was that when it comes to developing, **planning is probably the most important part of the project**. 
 
 ## Installation
 
