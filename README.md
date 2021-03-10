@@ -9,6 +9,7 @@ Also, one of the drives behind the **automated deployment with a cd/ci pipeline 
 
 #### Features:
 - [x] Authentication
+- [x] Creating of a NPM service to reuse code inside of the app
 - [x] Expiration service to reserve the ticket for 10 minutes while its being bought 
 - [x] Payment integration with Stripe API
 - [x] Microservices architecture
